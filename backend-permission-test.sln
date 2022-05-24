@@ -7,11 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{97DDACE8-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B20A587E-012B-48D3-B5E8-A07837483C4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permission.Infrastructure", "Permission.Infrastructure\Permission.Infrastructure.csproj", "{CB343DF0-79F7-434E-BDBC-DC39FBB45D93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permissions.Infrastructure", "Permission.Infrastructure\Permissions.Infrastructure.csproj", "{CB343DF0-79F7-434E-BDBC-DC39FBB45D93}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permission.Api", "Permission.Api\Permission.Api.csproj", "{F50C4B16-EFA8-4F13-B86A-B5CD2A12760E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permission.Core", "Permission.Core\Permission.Core.csproj", "{CA19B3E8-D170-4DFC-88C4-D98755FEA570}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permissions.Core", "Permission.Core\Permissions.Core.csproj", "{CA19B3E8-D170-4DFC-88C4-D98755FEA570}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permission.UnitTest", "Permission.UnitTest\Permission.UnitTest.csproj", "{0B2BD56A-4EA7-436C-98D7-07FC9DDED0DD}"
 EndProject
