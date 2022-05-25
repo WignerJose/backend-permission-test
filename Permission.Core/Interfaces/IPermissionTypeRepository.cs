@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace Permissions.Core.Interfaces
 {
-    public interface IPermissionTypeRepository
+    public interface IPermissionTypeRepository : IRepositoryAsync<PermissionType>
     {
-        Task<List<PermissionType>> GetAllAsync();
-        Task<PermissionType> GetByIdAsync(int id);
-        Task AddAsync(PermissionType permissionType);
-        Task UpdateAsync(PermissionType permissionType);
-        Task DeleteAsync(PermissionType permissionType);
     }
 }

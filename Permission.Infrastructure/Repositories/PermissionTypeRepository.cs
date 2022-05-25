@@ -1,5 +1,6 @@
 ﻿using Permissions.Core.Domain;
 using Permissions.Core.Interfaces;
+using Permissions.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,31 +9,10 @@ using System.Threading.Tasks;
 
 namespace Permissions.Infrastructure.Repositories
 {
-    public class PermissionTypeRepository : IPermissionTypeRepository
+    public class PermissionTypeRepository : RepositoryBase<PermissionType>, IPermissionTypeRepository
     {
-        public Task AddAsync(PermissionType permissionType)
+        public PermissionTypeRepository(PermissionDbContext permissionDbContext) : base(permissionDbContext)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(PermissionType permissionType)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<PermissionType>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<PermissionType> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(PermissionType permissionType)
-        {
-            throw new NotImplementedException();
         }
     }
 }
