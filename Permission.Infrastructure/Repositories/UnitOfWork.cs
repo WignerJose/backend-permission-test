@@ -13,17 +13,17 @@ namespace Permissions.Infrastructure.Repositories
     {
         private Hashtable _repositories;
         private readonly PermissionDbContext _permissionDbContext;
-        private readonly IPermissionRepository _permissionRepository;
-        private readonly IPermissionTypeRepository _permissionTypeRepository;
+        private IPermissionRepository _permissionRepository;
+        private IPermissionTypeRepository _permissionTypeRepository;
 
         public UnitOfWork(PermissionDbContext permissionDbContext)
         {
             _permissionDbContext = permissionDbContext;
         }
+        public PermissionDbContext PermissionDbContext => _permissionDbContext;
+        public IPermissionRepository PermissionRepository => _permissionRepository ??= new PermissionRepository(_permissionDbContext);
 
-        public IPermissionRepository PermissionRepository => throw new NotImplementedException();
-
-        public IPermissionTypeRepository PermissionTypeRepository => throw new NotImplementedException();
+        public IPermissionTypeRepository PermissionTypeRepository => _permissionTypeRepository ??= new PermissionTypeRepository(_permissionDbContext);
 
         public async Task<int> Complete()
         {
@@ -42,7 +42,7 @@ namespace Permissions.Infrastructure.Repositories
             if (!_repositories.ContainsKey(type))
             {
                 var repositoryType = typeof(RepositoryBase<>);
-                var repositoryInstance = Activator.CreateInstance(repositoryType.MakeGenericType(typeof(TEntity)), _context);
+                var repositoryInstance = Activator.CreateInstance(repositoryType.MakeGenericType(typeof(TEntity)), _permissionDbContext);
                 _repositories.Add(type, repositoryInstance);
             }
 
@@ -51,7 +51,7 @@ namespace Permissions.Infrastructure.Repositories
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _permissionDbContext.Dispose();
         }
     }
 }
