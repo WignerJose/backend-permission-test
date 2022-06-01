@@ -1,9 +1,16 @@
+using FluentValidation.AspNetCore;
 using Permissions.Api;
+using Permissions.Api.Endpoints.Permissions.Commands;
 using Permissions.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+                .AddFluentValidation(fv =>
+                {
+                    fv.RegisterValidatorsFromAssemblyContaining<CreatePermissionCommand>();
+                });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructureServices(builder.Configuration);
