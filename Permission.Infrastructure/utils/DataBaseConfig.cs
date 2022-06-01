@@ -8,7 +8,7 @@ namespace Permissions.Infrastructure.utils
 {
     public class DataBaseConfig
     {
-        public String ConnectionString { get; set; } = String.Empty;
+        public String DbConnectionStrings { get; set; } = String.Empty;
 
     }
 }
